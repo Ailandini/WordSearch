@@ -45,7 +45,20 @@ public class WordSearch {
     }
 
     public Boolean checkIfRowContainsWordHorizontally(String[] wordToFind, int puzzleRowToCheck){
-        return true;
+        int wordToFindLetterIndex = 0;
+        ArrayList<String> rowToCheck = wordSearchPuzzle.get(puzzleRowToCheck);
+        for (String puzzleLetter : rowToCheck) {
+            System.out.println(puzzleLetter + " : " + wordToFind[wordToFindLetterIndex]);
+            if (wordToFind[wordToFindLetterIndex].equals(puzzleLetter)) {
+                if(wordToFindLetterIndex == wordToFind.length - 1){
+                    return true;
+                }
+                wordToFindLetterIndex++;
+            } else {
+                wordToFindLetterIndex = 0;
+            }
+        }
+        return false;
     }
 
     public void findWords(){
