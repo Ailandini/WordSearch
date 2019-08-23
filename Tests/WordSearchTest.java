@@ -1,9 +1,10 @@
 import com.auburnpeaks.WordSearch;
 import org.junit.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import static junit.framework.TestCase.assertEquals;
-import static org.junit.Assert.assertArrayEquals;
+import static org.junit.Assert.*;
 
 public class WordSearchTest {
     private WordSearch wordsearch;
@@ -42,12 +43,25 @@ public class WordSearchTest {
     }
 
     @Test
-    public void CheckThatTest1PuzzleIsSquare(){
+    public void CheckThatPuzzleIsSquare(){
         assertEquals(wordsearch.getPuzzle().size(), wordsearch.getPuzzle().get(0).size());
         assertEquals(wordsearch2.getPuzzle().size(), wordsearch2.getPuzzle().get(0).size());
         assertEquals(wordsearch3.getPuzzle().size(), wordsearch3.getPuzzle().get(0).size());
     }
 
+    @Test
+    public void PuzzleIsSquareCorrectOutput(){
+        WordSearch wordsearch4 = new WordSearch();
+        wordsearch4.readTestPuzzle("Inputs/WordSearchTestPuzzle4");
+        assertTrue(wordsearch.puzzleIsSquare());
+        assertTrue(wordsearch2.puzzleIsSquare());
+        assertFalse(wordsearch4.puzzleIsSquare());
+    }
+
+    @Test
+    public void PuzzleCanFindHorizontalWords(){
+        assertTrue(wordsearch3.checkIfRowContainsWordHorizontally("RICE".split(""), 9));
+    }
 
 
 
