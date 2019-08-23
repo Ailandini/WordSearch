@@ -9,13 +9,15 @@ public class WordSearchTest {
     @Test
     public void CheckThatFirstWordFromTest1IsBanana(){
         WordSearch wordsearch = new WordSearch();
-        assertEquals("BANANA", wordsearch.readTestPuzzle("Inputs/WordSearchTestPuzzle1")[0]);
+        wordsearch.readTestPuzzle("Inputs/WordSearchTestPuzzle1");
+        assertEquals("BANANA", wordsearch.getWordsToFind()[0]);
     }
 
     @Test
     public void CheckThatAllWordsFromTest1AreRead(){
         WordSearch wordsearch = new WordSearch();
-        assertArrayEquals(new String[]{"BANANA", "CAT", "OWL", "PANTHER"}, wordsearch.readTestPuzzle("Inputs/WordSearchTestPuzzle1"));
+        wordsearch.readTestPuzzle("Inputs/WordSearchTestPuzzle1");
+        assertArrayEquals(new String[]{"BANANA", "CAT", "OWL", "PANTHER"}, wordsearch.getWordsToFind());
     }
 
 }

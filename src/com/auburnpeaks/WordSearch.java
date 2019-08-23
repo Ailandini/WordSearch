@@ -3,18 +3,21 @@ package com.auburnpeaks;
 import java.io.*;
 
 public class WordSearch {
+    private String[] wordsToFind = new String[]{};
 
-    public String[] readTestPuzzle(String pathToTestPuzzle){
-        String[] wordsToFind = new String[]{};
+    public void readTestPuzzle(String pathToTestPuzzle){
 
         try{
             BufferedReader in = new BufferedReader(new FileReader(pathToTestPuzzle));
             wordsToFind = in.readLine().split(",");
-            return wordsToFind;
         }
         catch(Exception e){
-            return wordsToFind;
+            System.out.println("Error Reading File:" + pathToTestPuzzle);
         }
+    }
+
+    public String[] getWordsToFind(){
+        return wordsToFind;
     }
 
 }
