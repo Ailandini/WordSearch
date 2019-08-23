@@ -44,11 +44,28 @@ public class WordSearch {
         return wordSearchPuzzle.size() == wordSearchPuzzle.get(0).size();
     }
 
+    public Boolean checkIfRowContainsWordHorizontallyBackwards(String[] wordToFind, int puzzleRowToCheck){
+        int wordToFindLetterIndex = 0;
+        ArrayList<String> rowToCheck = wordSearchPuzzle.get(puzzleRowToCheck);
+        for(int i = rowToCheck.size() - 1; i >= 0; i--){
+            System.out.println(wordToFind[wordToFindLetterIndex] + " : " + rowToCheck.get(i));
+            if(wordToFind[wordToFindLetterIndex].equals(rowToCheck.get(i))){
+                if(wordToFindLetterIndex == wordToFind.length - 1){
+                    return true;
+                }
+                wordToFindLetterIndex++;
+            }
+            else {
+                wordToFindLetterIndex = 0;
+            }
+        }
+        return false;
+    }
+
     public Boolean checkIfRowContainsWordHorizontally(String[] wordToFind, int puzzleRowToCheck){
         int wordToFindLetterIndex = 0;
         ArrayList<String> rowToCheck = wordSearchPuzzle.get(puzzleRowToCheck);
         for (String puzzleLetter : rowToCheck) {
-            System.out.println(puzzleLetter + " : " + wordToFind[wordToFindLetterIndex]);
             if (wordToFind[wordToFindLetterIndex].equals(puzzleLetter)) {
                 if(wordToFindLetterIndex == wordToFind.length - 1){
                     return true;
