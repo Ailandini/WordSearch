@@ -61,9 +61,16 @@ public class WordSearchTest {
     @Test
     public void PuzzleCanFindHorizontalWords(){
         assertTrue(wordsearch3.checkIfRowContainsWordHorizontally("RICE".split(""), 9));
+        assertFalse(wordsearch3.checkIfRowContainsWordHorizontally("RICE".split(""), 8));
         assertTrue(wordsearch3.checkIfRowContainsWordHorizontally("ZUCCHINI".split(""), 8));
+        assertFalse(wordsearch3.checkIfRowContainsWordHorizontally("SQUASH".split(""), 9));
+        assertFalse(wordsearch2.checkIfRowContainsWordHorizontally("ASTRONAUT".split(""), 5));
     }
 
+    @Test
+    public void PuzzleCanFindHorizontalWordsBackwards(){
+
+    }
 
 
 }
