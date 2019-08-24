@@ -75,5 +75,17 @@ public class WordSearchTest {
         assertFalse(wordsearch2.checkIfRowContainsWordHorizontallyBackwards("ASTRONAUT".split(""), 5));
     }
 
+    @Test
+    public void PuzzleCanFindVerticalWords(){
+        String[] wordsToFindInPuzzle1 = wordsearch.getWordsToFind();
+        String[] wordsToFindInPuzzle2 = wordsearch2.getWordsToFind();
+        String[] wordsToFindInPuzzle3 = wordsearch3.getWordsToFind();
+        assertTrue(wordsearch.checkIfColumnContainsWord(wordsToFindInPuzzle1[2].split(""), 8));
+        assertTrue(wordsearch2.checkIfColumnContainsWord(wordsToFindInPuzzle2[7].split(""), 11));
+        assertTrue(wordsearch3.checkIfColumnContainsWord(wordsToFindInPuzzle3[5].split(""), 7));
+        assertFalse(wordsearch.checkIfColumnContainsWord(wordsToFindInPuzzle1[0].split(""), 3));
+        assertFalse(wordsearch3.checkIfColumnContainsWord(wordsToFindInPuzzle3[3].split(""), 6));
+    }
+
 
 }

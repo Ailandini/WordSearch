@@ -78,6 +78,22 @@ public class WordSearch {
         return false;
     }
 
+    public Boolean checkIfColumnContainsWord(String[] wordToFind, int puzzleColumnToCheck){
+        int wordToFindLetterIndex = 0;
+        for(int i=0; i < wordSearchPuzzle.size();i++){
+            if(wordToFind[wordToFindLetterIndex].equals(wordSearchPuzzle.get(i).get(puzzleColumnToCheck))){
+                if(wordToFindLetterIndex == wordToFind.length - 1){
+                    return true;
+                }
+                wordToFindLetterIndex++;
+            }
+            else {
+                wordToFindLetterIndex = 0;
+            }
+        }
+        return false;
+    }
+
     public void findWords(){
         if(!puzzleIsSquare()){
             System.out.println("Input Puzzle is not square");
