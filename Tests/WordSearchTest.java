@@ -60,19 +60,19 @@ public class WordSearchTest {
 
     @Test
     public void PuzzleCanFindHorizontalWords(){
-        assertTrue(wordsearch3.checkIfRowContainsWordHorizontally("RICE".split(""), 9));
-        assertFalse(wordsearch3.checkIfRowContainsWordHorizontally("RICE".split(""), 8));
-        assertTrue(wordsearch3.checkIfRowContainsWordHorizontally("ZUCCHINI".split(""), 8));
-        assertFalse(wordsearch3.checkIfRowContainsWordHorizontally("SQUASH".split(""), 9));
-        assertFalse(wordsearch2.checkIfRowContainsWordHorizontally("ASTRONAUT".split(""), 5));
-        assertTrue(wordsearch2.checkIfRowContainsWordHorizontally("CITRUS".split(""), 8));
+        assertTrue(wordsearch3.checkIfRowContainsWord("RICE".split(""), 9));
+        assertFalse(wordsearch3.checkIfRowContainsWord("RICE".split(""), 8));
+        assertTrue(wordsearch3.checkIfRowContainsWord("ZUCCHINI".split(""), 8));
+        assertFalse(wordsearch3.checkIfRowContainsWord("SQUASH".split(""), 9));
+        assertFalse(wordsearch2.checkIfRowContainsWord("ASTRONAUT".split(""), 5));
+        assertTrue(wordsearch2.checkIfRowContainsWord("CITRUS".split(""), 8));
     }
 
     @Test
     public void PuzzleCanFindHorizontalWordsBackwards(){
-        assertTrue(wordsearch3.checkIfRowContainsWordHorizontallyBackwards("SQUASH".split(""), 9));
-        assertTrue(wordsearch.checkIfRowContainsWordHorizontallyBackwards("BANANA".split(""), 6));
-        assertFalse(wordsearch2.checkIfRowContainsWordHorizontallyBackwards("ASTRONAUT".split(""), 5));
+        assertTrue(wordsearch3.checkIfRowContainsWordBackwards("SQUASH".split(""), 9));
+        assertTrue(wordsearch.checkIfRowContainsWordBackwards("BANANA".split(""), 6));
+        assertFalse(wordsearch2.checkIfRowContainsWordBackwards("ASTRONAUT".split(""), 5));
     }
 
     @Test

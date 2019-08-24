@@ -44,7 +44,7 @@ public class WordSearch {
         return wordSearchPuzzle.size() == wordSearchPuzzle.get(0).size();
     }
 
-    public Boolean checkIfRowContainsWordHorizontallyBackwards(String[] wordToFind, int puzzleRowToCheck){
+    public Boolean checkIfRowContainsWordBackwards(String[] wordToFind, int puzzleRowToCheck){
         int wordToFindLetterIndex = 0;
         ArrayList<String> rowToCheck = wordSearchPuzzle.get(puzzleRowToCheck);
         for(int i = rowToCheck.size() - 1; i >= 0; i--){
@@ -62,7 +62,7 @@ public class WordSearch {
         return false;
     }
 
-    public Boolean checkIfRowContainsWordHorizontally(String[] wordToFind, int puzzleRowToCheck){
+    public Boolean checkIfRowContainsWord(String[] wordToFind, int puzzleRowToCheck){
         int wordToFindLetterIndex = 0;
         ArrayList<String> rowToCheck = wordSearchPuzzle.get(puzzleRowToCheck);
         for (String puzzleLetter : rowToCheck) {
