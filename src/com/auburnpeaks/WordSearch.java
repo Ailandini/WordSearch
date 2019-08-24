@@ -151,6 +151,27 @@ public class WordSearch {
         return false;
     }
 
+    public Boolean checkIfBackSlashContainsWord(String[] wordToFind, int puzzleRowToCheck, int puzzleColumnToCheck){
+        int wordToFindLetterIndex = 0;
+        int wordToFindLength = wordToFind.length - 1;
+        if(puzzleRowToCheck + wordToFindLength >= wordSearchPuzzle.size() || puzzleColumnToCheck + wordToFindLength >= wordSearchPuzzle.size()){
+            return false;
+        }
+        for(int i=0; i < wordToFind.length; i++){
+
+            if (wordSearchPuzzle.get(puzzleRowToCheck + i).get(puzzleColumnToCheck + i).equals(wordToFind[wordToFindLetterIndex])){
+                if(wordToFindLetterIndex == wordToFindLength){
+                    return true;
+                }
+                wordToFindLetterIndex++;
+            }
+            else {
+                wordToFindLetterIndex = 0;
+            }
+        }
+        return false;
+    }
+
     public void findWords(){
         if(!puzzleIsSquare()){
             System.out.println("Input Puzzle is not square");
