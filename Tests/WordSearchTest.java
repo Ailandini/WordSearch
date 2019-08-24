@@ -1,7 +1,5 @@
 import com.auburnpeaks.WordSearch;
 import org.junit.*;
-import java.util.ArrayList;
-import java.util.Arrays;
 
 import static junit.framework.TestCase.assertEquals;
 import static org.junit.Assert.*;
@@ -97,5 +95,13 @@ public class WordSearchTest {
         assertTrue(wordsearch2.checkIfColumnContainsWordBackwards(wordsToFindInPuzzle2[5].split(""), 10));
         assertFalse(wordsearch.checkIfColumnContainsWordBackwards(wordsToFindInPuzzle1[2].split(""), 3));
         assertFalse(wordsearch.checkIfColumnContainsWordBackwards(wordsToFindInPuzzle1[0].split(""), 0));
+    }
+
+    @Test
+    public void PuzzleCanFindForwardSlashWords(){
+        assertTrue(wordsearch3.checkIfForwardSlashContainsWord(wordsToFindInPuzzle3[1].split(""), 7, 2));
+        assertTrue(wordsearch2.checkIfForwardSlashContainsWord(wordsToFindInPuzzle2[4].split(""), 6, 1));
+        assertFalse(wordsearch2.checkIfForwardSlashContainsWord(wordsToFindInPuzzle2[1].split(""), 7, 2));
+        assertFalse(wordsearch.checkIfForwardSlashContainsWord(wordsToFindInPuzzle1[0].split(""), 0,0));
     }
 }
