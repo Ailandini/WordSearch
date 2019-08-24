@@ -121,4 +121,14 @@ public class WordSearchTest {
         assertFalse(wordsearch2.checkIfBackSlashContainsWord(wordsToFindInPuzzle2[0].split(""), 8, 7));
         assertFalse(wordsearch3.checkIfBackSlashContainsWord(wordsToFindInPuzzle2[5].split(""), 4, 2));
     }
+
+    @Test
+    public void PuzzleCanFindBackSlashWordsBackwards(){
+        WordSearch wordsearch5 = new WordSearch();
+        wordsearch5.readTestPuzzle("Inputs/WordSearchTestPuzzle5");
+        String[] wordsToFindInPuzzle5 = wordsearch5.getWordsToFind();
+
+        assertTrue(wordsearch5.checkIfBackSlashContainsWordBackwards(wordsToFindInPuzzle5[2].split(""), 3, 3));
+        assertFalse(wordsearch5.checkIfBackSlashContainsWordBackwards(wordsToFindInPuzzle5[0].split(""), 2, 0));
+    }
 }
