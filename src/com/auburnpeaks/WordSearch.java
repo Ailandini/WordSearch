@@ -54,7 +54,7 @@ public class WordSearch {
         ArrayList<String> rowToCheck = wordSearchPuzzle.get(puzzleRowToCheck);
         for(int i = rowToCheck.size() - 1; i >= 0; i--){
             if(wordToFind[wordToFindLetterIndex].equals(rowToCheck.get(i))){
-                outputIfWordFound.append("(").append(puzzleRowToCheck).append(",").append(i).append("),");
+                outputIfWordFound.append("(").append(i).append(",").append(puzzleRowToCheck).append("),");
                 if(wordToFindLetterIndex == wordToFind.length - 1){
                     foundWords += outputIfWordFound.substring(0, outputIfWordFound.length() - 1) + "\n";
                     return true;
@@ -79,7 +79,7 @@ public class WordSearch {
         ArrayList<String> rowToCheck = wordSearchPuzzle.get(puzzleRowToCheck);
         for (int i=0; i < wordSearchPuzzle.size(); i++) {
             if (wordToFind[wordToFindLetterIndex].equals(rowToCheck.get(i))) {
-                outputIfWordFound.append("(").append(puzzleRowToCheck).append(",").append(i).append("),");
+                outputIfWordFound.append("(").append(i).append(",").append(puzzleRowToCheck).append("),");
                 if(wordToFindLetterIndex == wordToFind.length - 1){
                     foundWords += outputIfWordFound.substring(0, outputIfWordFound.length() - 1) + "\n";
                     return true;
@@ -102,7 +102,7 @@ public class WordSearch {
         int wordToFindLetterIndex = 0;
         for(int i=0; i < wordSearchPuzzle.size(); i++){
             if (wordToFind[wordToFindLetterIndex].equals(wordSearchPuzzle.get(i).get(puzzleColumnToCheck))) {
-                outputIfWordFound.append("(").append(i).append(",").append(puzzleColumnToCheck).append("),");
+                outputIfWordFound.append("(").append(puzzleColumnToCheck).append(",").append(i).append("),");
                 if (wordToFindLetterIndex == wordToFind.length - 1) {
                     foundWords += outputIfWordFound.substring(0, outputIfWordFound.length() - 1) + "\n";
                     return true;
@@ -125,7 +125,7 @@ public class WordSearch {
         int wordToFindLetterIndex = 0;
         for(int i=wordSearchPuzzle.size()-1; i >=0;i--){
             if(wordToFind[wordToFindLetterIndex].equals(wordSearchPuzzle.get(i).get(puzzleColumnToCheck))){
-                outputIfWordFound.append("(").append(i).append(",").append(puzzleColumnToCheck).append("),");
+                outputIfWordFound.append("(").append(puzzleColumnToCheck).append(",").append(i).append("),");
                 if(wordToFindLetterIndex == wordToFind.length - 1){
                     foundWords += outputIfWordFound.substring(0, outputIfWordFound.length() - 1) + "\n";
                     return true;
@@ -154,7 +154,7 @@ public class WordSearch {
         for(int i=0; i < wordToFind.length; i++){
 
             if (wordSearchPuzzle.get(puzzleRowToCheck - i).get(puzzleColumnToCheck + i).equals(wordToFind[wordToFindLetterIndex])){
-                outputIfWordFound.append("(").append(puzzleRowToCheck - i).append(",").append(puzzleColumnToCheck + i).append("),");
+                outputIfWordFound.append("(").append(puzzleColumnToCheck + i).append(",").append(puzzleRowToCheck - i).append("),");
                 if(wordToFindLetterIndex == wordToFindLength){
                     foundWords += outputIfWordFound.substring(0, outputIfWordFound.length() - 1) + "\n";
                     return true;
@@ -183,7 +183,7 @@ public class WordSearch {
         for(int i=0; i < wordToFind.length; i++){
 
             if (wordSearchPuzzle.get(puzzleRowToCheck + i).get(puzzleColumnToCheck - i).equals(wordToFind[wordToFindLetterIndex])){
-                outputIfWordFound.append("(").append(puzzleRowToCheck + i).append(",").append(puzzleColumnToCheck - i).append("),");
+                outputIfWordFound.append("(").append(puzzleColumnToCheck - i).append(",").append(puzzleRowToCheck + i).append("),");
                 if(wordToFindLetterIndex == wordToFindLength){
                     foundWords += outputIfWordFound.substring(0, outputIfWordFound.length() - 1) + "\n";
                     return true;
@@ -212,7 +212,7 @@ public class WordSearch {
         for(int i=0; i < wordToFind.length; i++){
 
             if (wordSearchPuzzle.get(puzzleRowToCheck + i).get(puzzleColumnToCheck + i).equals(wordToFind[wordToFindLetterIndex])){
-                outputIfWordFound.append("(").append(puzzleRowToCheck + i).append(",").append(puzzleColumnToCheck + i).append("),");
+                outputIfWordFound.append("(").append(puzzleColumnToCheck + i).append(",").append(puzzleRowToCheck + i).append("),");
                 if(wordToFindLetterIndex == wordToFindLength){
                     foundWords += outputIfWordFound.substring(0, outputIfWordFound.length() - 1) + "\n";
                     return true;
@@ -241,7 +241,7 @@ public class WordSearch {
         for(int i=0; i < wordToFind.length; i++){
 
             if (wordSearchPuzzle.get(puzzleRowToCheck - i).get(puzzleColumnToCheck - i).equals(wordToFind[wordToFindLetterIndex])){
-                outputIfWordFound.append("(").append(puzzleRowToCheck - i).append(",").append(puzzleColumnToCheck - i).append("),");
+                outputIfWordFound.append("(").append(puzzleColumnToCheck - i).append(",").append(puzzleRowToCheck - i).append("),");
                 if(wordToFindLetterIndex == wordToFindLength){
                     foundWords += outputIfWordFound.substring(0, outputIfWordFound.length() - 1) + "\n";
                     return true;
