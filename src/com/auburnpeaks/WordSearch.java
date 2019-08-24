@@ -6,7 +6,7 @@ import java.util.Arrays;
 public class WordSearch {
     private String[] wordsToFind = new String[]{};
     private ArrayList<ArrayList<String>> wordSearchPuzzle = new ArrayList<>();
-    private String[] foundWords = new String[]{};
+    private String foundWords = "";
 
     public void readTestPuzzle(String pathToTestPuzzle){
 
@@ -36,8 +36,8 @@ public class WordSearch {
         return wordSearchPuzzle;
     }
 
-    public String[] getFoundWords(){
-        return foundWords;
+    public String getFoundWords(){
+        return foundWords.trim();
     }
 
     public Boolean puzzleIsSquare(){
@@ -48,7 +48,6 @@ public class WordSearch {
         int wordToFindLetterIndex = 0;
         ArrayList<String> rowToCheck = wordSearchPuzzle.get(puzzleRowToCheck);
         for(int i = rowToCheck.size() - 1; i >= 0; i--){
-            System.out.println(wordToFind[wordToFindLetterIndex] + " : " + rowToCheck.get(i));
             if(wordToFind[wordToFindLetterIndex].equals(rowToCheck.get(i))){
                 if(wordToFindLetterIndex == wordToFind.length - 1){
                     return true;
@@ -63,16 +62,24 @@ public class WordSearch {
     }
 
     public Boolean checkIfRowContainsWord(String[] wordToFind, int puzzleRowToCheck){
+        String initialWord = "";
+        for(String letter : wordToFind){ initialWord+= letter;}
+        initialWord += ": ";
+        String outputIfWordFound = initialWord;
+
         int wordToFindLetterIndex = 0;
         ArrayList<String> rowToCheck = wordSearchPuzzle.get(puzzleRowToCheck);
-        for (String puzzleLetter : rowToCheck) {
-            if (wordToFind[wordToFindLetterIndex].equals(puzzleLetter)) {
+        for (int i=0; i < wordSearchPuzzle.size(); i++) {
+            if (wordToFind[wordToFindLetterIndex].equals(rowToCheck.get(i))) {
+                outputIfWordFound += "(" + puzzleRowToCheck + "," + i +"),";
                 if(wordToFindLetterIndex == wordToFind.length - 1){
+                    foundWords += outputIfWordFound.substring(0, outputIfWordFound.length() - 1) + "\n";
                     return true;
                 }
                 wordToFindLetterIndex++;
             } else {
                 wordToFindLetterIndex = 0;
+                outputIfWordFound = initialWord;
             }
         }
         return false;
@@ -193,10 +200,24 @@ public class WordSearch {
         return false;
     }
 
+
+
     public void findWords(){
         if(!puzzleIsSquare()){
             System.out.println("Input Puzzle is not square");
             return;
+        }
+        if(Arrays.asList(wordsToFind).contains(null)){
+            System.out.println("Words to find contains a null value");
+            return;
+        }
+
+        if(wordSearchPuzzle.contains(null)){
+            System.out.println("Puzzle contains a null row");
+            return;
+        }
+        if(wordSearchPuzzle.size() == 0){
+            System.out.println("Puzzle is empty (size = 0)");
         }
         String[] findThisWord = "RICE".split("");
         int puzzleSize = wordSearchPuzzle.size();
