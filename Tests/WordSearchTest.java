@@ -133,13 +133,49 @@ public class WordSearchTest {
     }
 
     @Test
-    public void HorizontalWordsReturnString(){
+    public void HorizontalWordsReturnString() {
         wordsearch3.checkIfRowContainsWord("RICE".split(""), 9);
         assertEquals("RICE: (9,6),(9,7),(9,8),(9,9)", wordsearch3.getFoundWords());
         wordsearch3.checkIfRowContainsWord("SQUASH".split(""), 9);
         assertEquals("RICE: (9,6),(9,7),(9,8),(9,9)", wordsearch3.getFoundWords());
         wordsearch3.checkIfRowContainsWord("ZUCCHINI".split(""), 8);
         assertEquals("RICE: (9,6),(9,7),(9,8),(9,9)\nZUCCHINI: (8,0),(8,1),(8,2),(8,3),(8,4),(8,5),(8,6),(8,7)", wordsearch3.getFoundWords());
-
     }
+
+    @Test
+    public void BackwardHorizontalWordsReturnString(){
+        wordsearch3.checkIfRowContainsWordBackwards("SQUASH".split(""), 9);
+        assertEquals("SQUASH: (9,5),(9,4),(9,3),(9,2),(9,1),(9,0)", wordsearch3.getFoundWords());
+    }
+
+    @Test
+    public void VerticalWordsReturnString(){
+        wordsearch.checkIfColumnContainsWord(wordsToFindInPuzzle1[2].split(""), 8);
+        assertEquals("OWL: (6,8),(7,8),(8,8)", wordsearch.getFoundWords());
+    }
+
+    @Test
+    public void BackwardVerticalWordsReturnString(){
+        wordsearch3.checkIfColumnContainsWordBackwards(wordsToFindInPuzzle3[2].split(""), 8);
+        assertEquals("BROCCOLI: (7,8),(6,8),(5,8),(4,8),(3,8),(2,8),(1,8),(0,8)", wordsearch3.getFoundWords());
+    }
+    
+    @Test
+    public void DiagonalWordsReturnString(){
+        wordsearch3.checkIfForwardSlashContainsWord(wordsToFindInPuzzle3[1].split(""), 7, 2);
+        assertEquals("BEANS: (7,2),(6,3),(5,4),(4,5),(3,6)", wordsearch3.getFoundWords());
+        wordsearch3.checkIfForwardSlashContainsWordBackwards(wordsToFindInPuzzle3[9].split(""), 0, 5 );
+        assertEquals("BEANS: (7,2),(6,3),(5,4),(4,5),(3,6)\nTOMATO: (0,5),(1,4),(2,3),(3,2),(4,1),(5,0)", wordsearch3.getFoundWords());
+        wordsearch3.checkIfBackSlashContainsWord(wordsToFindInPuzzle3[3].split(""), 2, 0);
+        assertEquals("BEANS: (7,2),(6,3),(5,4),(4,5),(3,6)\nTOMATO: (0,5),(1,4),(2,3),(3,2),(4,1),(5,0)\nCARROT: (2,0),(3,1),(4,2),(5,3),(6,4),(7,5)", wordsearch3.getFoundWords());
+
+        WordSearch wordsearch5 = new WordSearch();
+        wordsearch5.readTestPuzzle("Inputs/WordSearchTestPuzzle5");
+        String[] wordsToFindInPuzzle5 = wordsearch5.getWordsToFind();
+
+        wordsearch5.checkIfBackSlashContainsWordBackwards(wordsToFindInPuzzle5[2].split(""), 3, 3);
+        assertEquals("HIKE: (3,3),(2,2),(1,1),(0,0)", wordsearch5.getFoundWords());
+    }
+
+
 }

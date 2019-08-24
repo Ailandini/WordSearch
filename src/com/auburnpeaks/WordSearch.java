@@ -45,33 +45,41 @@ public class WordSearch {
     }
 
     public Boolean checkIfRowContainsWordBackwards(String[] wordToFind, int puzzleRowToCheck){
+        StringBuilder initialWord = new StringBuilder();
+        for(String letter : wordToFind){ initialWord.append(letter);}
+        initialWord.append(": ");
+        StringBuilder outputIfWordFound = new StringBuilder(initialWord.toString());
+
         int wordToFindLetterIndex = 0;
         ArrayList<String> rowToCheck = wordSearchPuzzle.get(puzzleRowToCheck);
         for(int i = rowToCheck.size() - 1; i >= 0; i--){
             if(wordToFind[wordToFindLetterIndex].equals(rowToCheck.get(i))){
+                outputIfWordFound.append("(").append(puzzleRowToCheck).append(",").append(i).append("),");
                 if(wordToFindLetterIndex == wordToFind.length - 1){
+                    foundWords += outputIfWordFound.substring(0, outputIfWordFound.length() - 1) + "\n";
                     return true;
                 }
                 wordToFindLetterIndex++;
             }
             else {
                 wordToFindLetterIndex = 0;
+                outputIfWordFound = new StringBuilder(initialWord.toString());
             }
         }
         return false;
     }
 
     public Boolean checkIfRowContainsWord(String[] wordToFind, int puzzleRowToCheck){
-        String initialWord = "";
-        for(String letter : wordToFind){ initialWord+= letter;}
-        initialWord += ": ";
-        String outputIfWordFound = initialWord;
+        StringBuilder initialWord = new StringBuilder();
+        for(String letter : wordToFind){ initialWord.append(letter);}
+        initialWord.append(": ");
+        StringBuilder outputIfWordFound = new StringBuilder(initialWord.toString());
 
         int wordToFindLetterIndex = 0;
         ArrayList<String> rowToCheck = wordSearchPuzzle.get(puzzleRowToCheck);
         for (int i=0; i < wordSearchPuzzle.size(); i++) {
             if (wordToFind[wordToFindLetterIndex].equals(rowToCheck.get(i))) {
-                outputIfWordFound += "(" + puzzleRowToCheck + "," + i +"),";
+                outputIfWordFound.append("(").append(puzzleRowToCheck).append(",").append(i).append("),");
                 if(wordToFindLetterIndex == wordToFind.length - 1){
                     foundWords += outputIfWordFound.substring(0, outputIfWordFound.length() - 1) + "\n";
                     return true;
@@ -79,44 +87,65 @@ public class WordSearch {
                 wordToFindLetterIndex++;
             } else {
                 wordToFindLetterIndex = 0;
-                outputIfWordFound = initialWord;
+                outputIfWordFound = new StringBuilder(initialWord.toString());
             }
         }
         return false;
     }
 
     public Boolean checkIfColumnContainsWord(String[] wordToFind, int puzzleColumnToCheck){
+        StringBuilder initialWord = new StringBuilder();
+        for(String letter : wordToFind){ initialWord.append(letter);}
+        initialWord.append(": ");
+        StringBuilder outputIfWordFound = new StringBuilder(initialWord.toString());
+
         int wordToFindLetterIndex = 0;
-        for (ArrayList<String> puzzleRow : wordSearchPuzzle) {
-            if (wordToFind[wordToFindLetterIndex].equals(puzzleRow.get(puzzleColumnToCheck))) {
+        for(int i=0; i < wordSearchPuzzle.size(); i++){
+            if (wordToFind[wordToFindLetterIndex].equals(wordSearchPuzzle.get(i).get(puzzleColumnToCheck))) {
+                outputIfWordFound.append("(").append(i).append(",").append(puzzleColumnToCheck).append("),");
                 if (wordToFindLetterIndex == wordToFind.length - 1) {
+                    foundWords += outputIfWordFound.substring(0, outputIfWordFound.length() - 1) + "\n";
                     return true;
                 }
                 wordToFindLetterIndex++;
             } else {
                 wordToFindLetterIndex = 0;
+                outputIfWordFound = new StringBuilder(initialWord.toString());
             }
         }
         return false;
     }
 
     public Boolean checkIfColumnContainsWordBackwards(String[] wordToFind, int puzzleColumnToCheck){
+        StringBuilder initialWord = new StringBuilder();
+        for(String letter : wordToFind){ initialWord.append(letter);}
+        initialWord.append(": ");
+        StringBuilder outputIfWordFound = new StringBuilder(initialWord.toString());
+
         int wordToFindLetterIndex = 0;
         for(int i=wordSearchPuzzle.size()-1; i >=0;i--){
             if(wordToFind[wordToFindLetterIndex].equals(wordSearchPuzzle.get(i).get(puzzleColumnToCheck))){
+                outputIfWordFound.append("(").append(i).append(",").append(puzzleColumnToCheck).append("),");
                 if(wordToFindLetterIndex == wordToFind.length - 1){
+                    foundWords += outputIfWordFound.substring(0, outputIfWordFound.length() - 1) + "\n";
                     return true;
                 }
                 wordToFindLetterIndex++;
             }
             else {
                 wordToFindLetterIndex = 0;
+                outputIfWordFound = new StringBuilder(initialWord.toString());
             }
         }
         return false;
     }
 
     public Boolean checkIfForwardSlashContainsWord(String[] wordToFind, int puzzleRowToCheck, int puzzleColumnToCheck){
+        StringBuilder initialWord = new StringBuilder();
+        for(String letter : wordToFind){ initialWord.append(letter);}
+        initialWord.append(": ");
+        StringBuilder outputIfWordFound = new StringBuilder(initialWord.toString());
+
         int wordToFindLetterIndex = 0;
         int wordToFindLength = wordToFind.length - 1;
         if(puzzleRowToCheck - wordToFindLength < 0 || puzzleColumnToCheck + wordToFindLength >= wordSearchPuzzle.size()){
@@ -125,19 +154,27 @@ public class WordSearch {
         for(int i=0; i < wordToFind.length; i++){
 
             if (wordSearchPuzzle.get(puzzleRowToCheck - i).get(puzzleColumnToCheck + i).equals(wordToFind[wordToFindLetterIndex])){
+                outputIfWordFound.append("(").append(puzzleRowToCheck - i).append(",").append(puzzleColumnToCheck + i).append("),");
                 if(wordToFindLetterIndex == wordToFindLength){
+                    foundWords += outputIfWordFound.substring(0, outputIfWordFound.length() - 1) + "\n";
                     return true;
                 }
                 wordToFindLetterIndex++;
             }
             else {
                 wordToFindLetterIndex = 0;
+                outputIfWordFound = new StringBuilder(initialWord.toString());
             }
         }
         return false;
     }
 
     public Boolean checkIfForwardSlashContainsWordBackwards(String[] wordToFind, int puzzleRowToCheck, int puzzleColumnToCheck){
+        StringBuilder initialWord = new StringBuilder();
+        for(String letter : wordToFind){ initialWord.append(letter);}
+        initialWord.append(": ");
+        StringBuilder outputIfWordFound = new StringBuilder(initialWord.toString());
+
         int wordToFindLetterIndex = 0;
         int wordToFindLength = wordToFind.length - 1;
         if(puzzleRowToCheck + wordToFindLength >= wordSearchPuzzle.size() || puzzleColumnToCheck - wordToFindLength < 0){
@@ -146,19 +183,27 @@ public class WordSearch {
         for(int i=0; i < wordToFind.length; i++){
 
             if (wordSearchPuzzle.get(puzzleRowToCheck + i).get(puzzleColumnToCheck - i).equals(wordToFind[wordToFindLetterIndex])){
+                outputIfWordFound.append("(").append(puzzleRowToCheck + i).append(",").append(puzzleColumnToCheck - i).append("),");
                 if(wordToFindLetterIndex == wordToFindLength){
+                    foundWords += outputIfWordFound.substring(0, outputIfWordFound.length() - 1) + "\n";
                     return true;
                 }
                 wordToFindLetterIndex++;
             }
             else {
                 wordToFindLetterIndex = 0;
+                outputIfWordFound = new StringBuilder(initialWord.toString());
             }
         }
         return false;
     }
 
     public Boolean checkIfBackSlashContainsWord(String[] wordToFind, int puzzleRowToCheck, int puzzleColumnToCheck){
+        StringBuilder initialWord = new StringBuilder();
+        for(String letter : wordToFind){ initialWord.append(letter);}
+        initialWord.append(": ");
+        StringBuilder outputIfWordFound = new StringBuilder(initialWord.toString());
+
         int wordToFindLetterIndex = 0;
         int wordToFindLength = wordToFind.length - 1;
         if(puzzleRowToCheck + wordToFindLength >= wordSearchPuzzle.size() || puzzleColumnToCheck + wordToFindLength >= wordSearchPuzzle.size()){
@@ -167,19 +212,27 @@ public class WordSearch {
         for(int i=0; i < wordToFind.length; i++){
 
             if (wordSearchPuzzle.get(puzzleRowToCheck + i).get(puzzleColumnToCheck + i).equals(wordToFind[wordToFindLetterIndex])){
+                outputIfWordFound.append("(").append(puzzleRowToCheck + i).append(",").append(puzzleColumnToCheck + i).append("),");
                 if(wordToFindLetterIndex == wordToFindLength){
+                    foundWords += outputIfWordFound.substring(0, outputIfWordFound.length() - 1) + "\n";
                     return true;
                 }
                 wordToFindLetterIndex++;
             }
             else {
                 wordToFindLetterIndex = 0;
+                outputIfWordFound = new StringBuilder(initialWord.toString());
             }
         }
         return false;
     }
 
     public Boolean checkIfBackSlashContainsWordBackwards(String[] wordToFind, int puzzleRowToCheck, int puzzleColumnToCheck){
+        StringBuilder initialWord = new StringBuilder();
+        for(String letter : wordToFind){ initialWord.append(letter);}
+        initialWord.append(": ");
+        StringBuilder outputIfWordFound = new StringBuilder(initialWord.toString());
+
         int wordToFindLetterIndex = 0;
         int wordToFindLength = wordToFind.length - 1;
         if(puzzleRowToCheck - wordToFindLength < 0 || puzzleColumnToCheck - wordToFindLength < 0){
@@ -188,13 +241,16 @@ public class WordSearch {
         for(int i=0; i < wordToFind.length; i++){
 
             if (wordSearchPuzzle.get(puzzleRowToCheck - i).get(puzzleColumnToCheck - i).equals(wordToFind[wordToFindLetterIndex])){
+                outputIfWordFound.append("(").append(puzzleRowToCheck - i).append(",").append(puzzleColumnToCheck - i).append("),");
                 if(wordToFindLetterIndex == wordToFindLength){
+                    foundWords += outputIfWordFound.substring(0, outputIfWordFound.length() - 1) + "\n";
                     return true;
                 }
                 wordToFindLetterIndex++;
             }
             else {
                 wordToFindLetterIndex = 0;
+                outputIfWordFound = new StringBuilder(initialWord.toString());
             }
         }
         return false;
