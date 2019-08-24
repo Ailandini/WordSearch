@@ -80,7 +80,22 @@ public class WordSearch {
 
     public Boolean checkIfColumnContainsWord(String[] wordToFind, int puzzleColumnToCheck){
         int wordToFindLetterIndex = 0;
-        for(int i=0; i < wordSearchPuzzle.size();i++){
+        for (ArrayList<String> puzzleRow : wordSearchPuzzle) {
+            if (wordToFind[wordToFindLetterIndex].equals(puzzleRow.get(puzzleColumnToCheck))) {
+                if (wordToFindLetterIndex == wordToFind.length - 1) {
+                    return true;
+                }
+                wordToFindLetterIndex++;
+            } else {
+                wordToFindLetterIndex = 0;
+            }
+        }
+        return false;
+    }
+
+    public Boolean checkIfColumnContainsWordBackwards(String[] wordToFind, int puzzleColumnToCheck){
+        int wordToFindLetterIndex = 0;
+        for(int i=wordSearchPuzzle.size()-1; i >=0;i--){
             if(wordToFind[wordToFindLetterIndex].equals(wordSearchPuzzle.get(i).get(puzzleColumnToCheck))){
                 if(wordToFindLetterIndex == wordToFind.length - 1){
                     return true;

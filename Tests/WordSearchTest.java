@@ -87,5 +87,15 @@ public class WordSearchTest {
         assertFalse(wordsearch3.checkIfColumnContainsWord(wordsToFindInPuzzle3[3].split(""), 6));
     }
 
-
+    @Test
+    public void PuzzleCanFindVerticalWordsBackwards(){
+        String[] wordsToFindInPuzzle1 = wordsearch.getWordsToFind();
+        String[] wordsToFindInPuzzle2 = wordsearch2.getWordsToFind();
+        String[] wordsToFindInPuzzle3 = wordsearch3.getWordsToFind();
+        assertTrue(wordsearch3.checkIfColumnContainsWordBackwards(wordsToFindInPuzzle3[2].split(""), 8));
+        assertTrue(wordsearch3.checkIfColumnContainsWordBackwards(wordsToFindInPuzzle3[6].split(""), 9));
+        assertTrue(wordsearch2.checkIfColumnContainsWordBackwards(wordsToFindInPuzzle2[5].split(""), 10));
+        assertFalse(wordsearch.checkIfColumnContainsWordBackwards(wordsToFindInPuzzle1[2].split(""), 3));
+        assertFalse(wordsearch.checkIfColumnContainsWordBackwards(wordsToFindInPuzzle1[0].split(""), 0));
+    }
 }
