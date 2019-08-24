@@ -205,26 +205,45 @@ public class WordSearchTest {
     @Test
     public void findAllHorizontalWords(){
         wordsearch3.findWords();
-        assertTrue( wordsearch3.getFoundWords().contains("RICE: (9,6),(9,7),(9,8),(9,9)\nSQUASH: (9,5),(9,4),(9,3),(9,2),(9,1),(9,0)\nZUCCHINI: (8,0),(8,1),(8,2),(8,3),(8,4),(8,5),(8,6),(8,7)"));
+        System.out.println(wordsearch3.getFoundWords());
+        assertTrue(wordsearch3.getFoundWords().contains("RICE: (9,6),(9,7),(9,8),(9,9)"));
+        assertTrue(wordsearch3.getFoundWords().contains("SQUASH: (9,5),(9,4),(9,3),(9,2),(9,1),(9,0)"));
+        assertTrue(wordsearch3.getFoundWords().contains("ZUCCHINI: (8,0),(8,1),(8,2),(8,3),(8,4),(8,5),(8,6),(8,7)"));
     }
 
     @Test
     public void findAllHorizontalAndVerticalWords(){
         wordsearch3.findWords();
-        assertTrue(wordsearch3.getFoundWords().contains("BROCCOLI: (7,8),(6,8),(5,8),(4,8),(3,8),(2,8),(1,8),(0,8)\n" +
-                                "HUMMUS: (1,7),(2,7),(3,7),(4,7),(5,7),(6,7)\n" +
-                                "RADISH: (5,9),(4,9),(3,9),(2,9),(1,9),(0,9)\n" +
-                                "RICE: (9,6),(9,7),(9,8),(9,9)\n" +
-                                "SQUASH: (9,5),(9,4),(9,3),(9,2),(9,1),(9,0)\n" +
-                                "ZUCCHINI: (8,0),(8,1),(8,2),(8,3),(8,4),(8,5),(8,6),(8,7)"));
+        assertTrue(wordsearch3.getFoundWords().contains("RICE: (9,6),(9,7),(9,8),(9,9)"));
+        assertTrue(wordsearch3.getFoundWords().contains("SQUASH: (9,5),(9,4),(9,3),(9,2),(9,1),(9,0)"));
+        assertTrue(wordsearch3.getFoundWords().contains("ZUCCHINI: (8,0),(8,1),(8,2),(8,3),(8,4),(8,5),(8,6),(8,7)"));
+        assertTrue(wordsearch3.getFoundWords().contains("BROCCOLI: (7,8),(6,8),(5,8),(4,8),(3,8),(2,8),(1,8),(0,8)"));
+        assertTrue(wordsearch3.getFoundWords().contains("HUMMUS: (1,7),(2,7),(3,7),(4,7),(5,7),(6,7)"));
+        assertTrue(wordsearch3.getFoundWords().contains("RADISH: (5,9),(4,9),(3,9),(2,9),(1,9),(0,9)"));
 
     }
 
     @Test
     public void findAllHorizontalVerticalAndForwardSlashWords(){
         wordsearch3.findWords();
-        assertEquals("BEANS: (7,2),(6,3),(5,4),(4,5),(3,6)\n" +
+        assertTrue(wordsearch3.getFoundWords().contains("RICE: (9,6),(9,7),(9,8),(9,9)"));
+        assertTrue(wordsearch3.getFoundWords().contains("SQUASH: (9,5),(9,4),(9,3),(9,2),(9,1),(9,0)"));
+        assertTrue(wordsearch3.getFoundWords().contains("ZUCCHINI: (8,0),(8,1),(8,2),(8,3),(8,4),(8,5),(8,6),(8,7)"));
+        assertTrue(wordsearch3.getFoundWords().contains("BROCCOLI: (7,8),(6,8),(5,8),(4,8),(3,8),(2,8),(1,8),(0,8)"));
+        assertTrue(wordsearch3.getFoundWords().contains("HUMMUS: (1,7),(2,7),(3,7),(4,7),(5,7),(6,7)"));
+        assertTrue(wordsearch3.getFoundWords().contains("RADISH: (5,9),(4,9),(3,9),(2,9),(1,9),(0,9)"));
+        assertTrue(wordsearch3.getFoundWords().contains("BEANS: (7,2),(6,3),(5,4),(4,5),(3,6)"));
+        assertTrue(wordsearch3.getFoundWords().contains("CUCUMBER: (7,0),(6,1),(5,2),(4,3),(3,4),(2,5),(1,6),(0,7)"));
+        assertTrue(wordsearch3.getFoundWords().contains("TOMATO: (0,5),(1,4),(2,3),(3,2),(4,1),(5,0)"));
+    }
+
+    @Test
+    public void findAllWords(){
+        wordsearch3.findWords();
+        assertEquals("ASPARAGUS: (8,8),(7,7),(6,6),(5,5),(4,4),(3,3),(2,2),(1,1),(0,0)\n" +
+                "BEANS: (7,2),(6,3),(5,4),(4,5),(3,6)\n" +
                 "BROCCOLI: (7,8),(6,8),(5,8),(4,8),(3,8),(2,8),(1,8),(0,8)\n" +
+                "CARROT: (2,0),(3,1),(4,2),(5,3),(6,4),(7,5)\n" +
                 "CUCUMBER: (7,0),(6,1),(5,2),(4,3),(3,4),(2,5),(1,6),(0,7)\n" +
                 "HUMMUS: (1,7),(2,7),(3,7),(4,7),(5,7),(6,7)\n" +
                 "RADISH: (5,9),(4,9),(3,9),(2,9),(1,9),(0,9)\n" +

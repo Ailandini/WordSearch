@@ -293,7 +293,8 @@ public class WordSearch {
                         foundWord = true;
                         break;
                     }
-                    if(checkIfForwardSlashContainsWord(wordToFindArray, i, j) || checkIfForwardSlashContainsWordBackwards(wordToFindArray, i, j)){
+                    if(checkIfForwardSlashContainsWord(wordToFindArray, i, j) || checkIfForwardSlashContainsWordBackwards(wordToFindArray, i, j)
+                    || checkIfBackSlashContainsWord(wordToFindArray, i, j) || checkIfBackSlashContainsWordBackwards(wordToFindArray, i, j)){
                         foundWord = true;
                         break;
                     }
