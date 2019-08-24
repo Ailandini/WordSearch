@@ -1,3 +1,4 @@
+import com.auburnpeaks.FindWordMethods;
 import com.auburnpeaks.WordSearch;
 import org.junit.*;
 
@@ -11,6 +12,7 @@ public class WordSearchTest {
     private String[] wordsToFindInPuzzle1;
     private String[] wordsToFindInPuzzle2;
     private String[] wordsToFindInPuzzle3;
+    private FindWordMethods findWordMethods;
 
     @Before
     public void setUp(){
@@ -23,6 +25,7 @@ public class WordSearchTest {
         wordsToFindInPuzzle1 = wordsearch.getWordsToFind();
         wordsToFindInPuzzle2 = wordsearch2.getWordsToFind();
         wordsToFindInPuzzle3 = wordsearch3.getWordsToFind();
+        findWordMethods = new FindWordMethods();
     }
 
     @Test
@@ -64,62 +67,62 @@ public class WordSearchTest {
 
     @Test
     public void PuzzleCanFindHorizontalWords(){
-        assertTrue(wordsearch3.checkIfRowContainsWord("RICE".split(""), 9));
-        assertFalse(wordsearch3.checkIfRowContainsWord("RICE".split(""), 8));
-        assertTrue(wordsearch3.checkIfRowContainsWord("ZUCCHINI".split(""), 8));
-        assertFalse(wordsearch3.checkIfRowContainsWord("SQUASH".split(""), 9));
-        assertFalse(wordsearch2.checkIfRowContainsWord("ASTRONAUT".split(""), 5));
-        assertTrue(wordsearch2.checkIfRowContainsWord("CITRUS".split(""), 8));
+        assertTrue(findWordMethods.checkIfRowContainsWord(wordsearch3.getPuzzle(), "RICE".split(""), 9));
+        assertFalse(findWordMethods.checkIfRowContainsWord(wordsearch3.getPuzzle(), "RICE".split(""), 8));
+        assertTrue(findWordMethods.checkIfRowContainsWord(wordsearch3.getPuzzle(), "ZUCCHINI".split(""), 8));
+        assertFalse(findWordMethods.checkIfRowContainsWord(wordsearch3.getPuzzle(), "SQUASH".split(""), 9));
+        assertFalse(findWordMethods.checkIfRowContainsWord(wordsearch2.getPuzzle(), "ASTRONAUT".split(""), 5));
+        assertTrue(findWordMethods.checkIfRowContainsWord(wordsearch2.getPuzzle(), "CITRUS".split(""), 8));
     }
 
     @Test
     public void PuzzleCanFindHorizontalWordsBackwards(){
-        assertTrue(wordsearch3.checkIfRowContainsWordBackwards("SQUASH".split(""), 9));
-        assertTrue(wordsearch.checkIfRowContainsWordBackwards("BANANA".split(""), 6));
-        assertFalse(wordsearch2.checkIfRowContainsWordBackwards("ASTRONAUT".split(""), 5));
+        assertTrue(findWordMethods.checkIfRowContainsWordBackwards(wordsearch3.getPuzzle(),"SQUASH".split(""), 9));
+        assertTrue(findWordMethods.checkIfRowContainsWordBackwards(wordsearch.getPuzzle(), "BANANA".split(""), 6));
+        assertFalse(findWordMethods.checkIfRowContainsWordBackwards(wordsearch2.getPuzzle(), "ASTRONAUT".split(""), 5));
     }
 
     @Test
     public void PuzzleCanFindVerticalWords(){
-        assertTrue(wordsearch.checkIfColumnContainsWord(wordsToFindInPuzzle1[2].split(""), 8));
-        assertTrue(wordsearch2.checkIfColumnContainsWord(wordsToFindInPuzzle2[7].split(""), 11));
-        assertTrue(wordsearch3.checkIfColumnContainsWord(wordsToFindInPuzzle3[5].split(""), 7));
-        assertFalse(wordsearch.checkIfColumnContainsWord(wordsToFindInPuzzle1[0].split(""), 3));
-        assertFalse(wordsearch3.checkIfColumnContainsWord(wordsToFindInPuzzle3[3].split(""), 6));
+        assertTrue(findWordMethods.checkIfColumnContainsWord( wordsearch.getPuzzle() ,wordsToFindInPuzzle1[2].split(""), 8));
+        assertTrue(findWordMethods.checkIfColumnContainsWord(wordsearch2.getPuzzle(),wordsToFindInPuzzle2[7].split(""), 11));
+        assertTrue(findWordMethods.checkIfColumnContainsWord(wordsearch3.getPuzzle(),wordsToFindInPuzzle3[5].split(""), 7));
+        assertFalse(findWordMethods.checkIfColumnContainsWord(wordsearch.getPuzzle(),wordsToFindInPuzzle1[0].split(""), 3));
+        assertFalse(findWordMethods.checkIfColumnContainsWord(wordsearch3.getPuzzle(),wordsToFindInPuzzle3[3].split(""), 6));
     }
 
     @Test
     public void PuzzleCanFindVerticalWordsBackwards(){
-        assertTrue(wordsearch3.checkIfColumnContainsWordBackwards(wordsToFindInPuzzle3[2].split(""), 8));
-        assertTrue(wordsearch3.checkIfColumnContainsWordBackwards(wordsToFindInPuzzle3[6].split(""), 9));
-        assertTrue(wordsearch2.checkIfColumnContainsWordBackwards(wordsToFindInPuzzle2[5].split(""), 10));
-        assertFalse(wordsearch.checkIfColumnContainsWordBackwards(wordsToFindInPuzzle1[2].split(""), 3));
-        assertFalse(wordsearch.checkIfColumnContainsWordBackwards(wordsToFindInPuzzle1[0].split(""), 0));
+        assertTrue(findWordMethods.checkIfColumnContainsWordBackwards(wordsearch3.getPuzzle() ,wordsToFindInPuzzle3[2].split(""), 8));
+        assertTrue(findWordMethods.checkIfColumnContainsWordBackwards(wordsearch3.getPuzzle() ,wordsToFindInPuzzle3[6].split(""), 9));
+        assertTrue(findWordMethods.checkIfColumnContainsWordBackwards(wordsearch2.getPuzzle(), wordsToFindInPuzzle2[5].split(""), 10));
+        assertFalse(findWordMethods.checkIfColumnContainsWordBackwards(wordsearch.getPuzzle(), wordsToFindInPuzzle1[2].split(""), 3));
+        assertFalse(findWordMethods.checkIfColumnContainsWordBackwards(wordsearch.getPuzzle(), wordsToFindInPuzzle1[0].split(""), 0));
     }
 
     @Test
     public void PuzzleCanFindForwardSlashWords(){
-        assertTrue(wordsearch3.checkIfForwardSlashContainsWord(wordsToFindInPuzzle3[1].split(""), 7, 2));
-        assertTrue(wordsearch2.checkIfForwardSlashContainsWord(wordsToFindInPuzzle2[4].split(""), 6, 1));
-        assertFalse(wordsearch2.checkIfForwardSlashContainsWord(wordsToFindInPuzzle2[1].split(""), 7, 2));
-        assertFalse(wordsearch.checkIfForwardSlashContainsWord(wordsToFindInPuzzle1[0].split(""), 0,0));
+        assertTrue(findWordMethods.checkIfForwardSlashContainsWord(wordsearch3.getPuzzle(), wordsToFindInPuzzle3[1].split(""), 7, 2));
+        assertTrue(findWordMethods.checkIfForwardSlashContainsWord(wordsearch2.getPuzzle(), wordsToFindInPuzzle2[4].split(""), 6, 1));
+        assertFalse(findWordMethods.checkIfForwardSlashContainsWord(wordsearch2.getPuzzle(), wordsToFindInPuzzle2[1].split(""), 7, 2));
+        assertFalse(findWordMethods.checkIfForwardSlashContainsWord(wordsearch.getPuzzle(), wordsToFindInPuzzle1[0].split(""), 0,0));
     }
 
     @Test
     public void PuzzleCanFindForwardSlashWordsBackwards(){
-        assertTrue(wordsearch3.checkIfForwardSlashContainsWordBackwards(wordsToFindInPuzzle3[9].split(""), 0, 5 ));
-        assertTrue(wordsearch2.checkIfForwardSlashContainsWordBackwards(wordsToFindInPuzzle2[6].split(""), 0, 9 ));
-        assertTrue(wordsearch.checkIfForwardSlashContainsWordBackwards(wordsToFindInPuzzle1[3].split(""), 1, 6 ));
-        assertFalse(wordsearch.checkIfForwardSlashContainsWordBackwards(wordsToFindInPuzzle1[1].split(""), 5, 3 ));
-        assertFalse(wordsearch3.checkIfForwardSlashContainsWordBackwards(wordsToFindInPuzzle3[2].split(""), 7, 8 ));
+        assertTrue(findWordMethods.checkIfForwardSlashContainsWordBackwards(wordsearch3.getPuzzle(), wordsToFindInPuzzle3[9].split(""), 0, 5 ));
+        assertTrue(findWordMethods.checkIfForwardSlashContainsWordBackwards(wordsearch2.getPuzzle(), wordsToFindInPuzzle2[6].split(""), 0, 9 ));
+        assertTrue(findWordMethods.checkIfForwardSlashContainsWordBackwards(wordsearch.getPuzzle(), wordsToFindInPuzzle1[3].split(""), 1, 6 ));
+        assertFalse(findWordMethods.checkIfForwardSlashContainsWordBackwards(wordsearch.getPuzzle(), wordsToFindInPuzzle1[1].split(""), 5, 3 ));
+        assertFalse(findWordMethods.checkIfForwardSlashContainsWordBackwards(wordsearch3.getPuzzle(), wordsToFindInPuzzle3[2].split(""), 7, 8 ));
     }
 
     @Test
     public void PuzzleCanFindBackSlashWords(){
-        assertTrue(wordsearch3.checkIfBackSlashContainsWord(wordsToFindInPuzzle3[3].split(""), 2, 0));
-        assertTrue(wordsearch2.checkIfBackSlashContainsWord(wordsToFindInPuzzle2[2].split(""), 0, 0));
-        assertFalse(wordsearch2.checkIfBackSlashContainsWord(wordsToFindInPuzzle2[0].split(""), 8, 7));
-        assertFalse(wordsearch3.checkIfBackSlashContainsWord(wordsToFindInPuzzle2[5].split(""), 4, 2));
+        assertTrue(findWordMethods.checkIfBackSlashContainsWord(wordsearch3.getPuzzle(), wordsToFindInPuzzle3[3].split(""), 2, 0));
+        assertTrue(findWordMethods.checkIfBackSlashContainsWord(wordsearch2.getPuzzle(), wordsToFindInPuzzle2[2].split(""), 0, 0));
+        assertFalse(findWordMethods.checkIfBackSlashContainsWord(wordsearch2.getPuzzle(), wordsToFindInPuzzle2[0].split(""), 8, 7));
+        assertFalse(findWordMethods.checkIfBackSlashContainsWord(wordsearch3.getPuzzle(), wordsToFindInPuzzle2[5].split(""), 4, 2));
     }
 
     @Test
@@ -128,7 +131,7 @@ public class WordSearchTest {
         wordsearch5.readTestPuzzle("Inputs/WordSearchTestPuzzle5");
         String[] wordsToFindInPuzzle5 = wordsearch5.getWordsToFind();
 
-        assertTrue(wordsearch5.checkIfBackSlashContainsWordBackwards(wordsToFindInPuzzle5[2].split(""), 3, 3));
-        assertFalse(wordsearch5.checkIfBackSlashContainsWordBackwards(wordsToFindInPuzzle5[0].split(""), 2, 0));
+        assertTrue(findWordMethods.checkIfBackSlashContainsWordBackwards(wordsearch5.getPuzzle(), wordsToFindInPuzzle5[2].split(""), 3, 3));
+        assertFalse(findWordMethods.checkIfBackSlashContainsWordBackwards(wordsearch5.getPuzzle(), wordsToFindInPuzzle5[0].split(""), 2, 0));
     }
 }
