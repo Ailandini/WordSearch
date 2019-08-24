@@ -131,4 +131,15 @@ public class WordSearchTest {
         assertTrue(wordsearch5.checkIfBackSlashContainsWordBackwards(wordsToFindInPuzzle5[2].split(""), 3, 3));
         assertFalse(wordsearch5.checkIfBackSlashContainsWordBackwards(wordsToFindInPuzzle5[0].split(""), 2, 0));
     }
+
+    @Test
+    public void HorizontalWordsReturnString(){
+        wordsearch3.checkIfRowContainsWord("RICE".split(""), 9);
+        assertEquals("RICE: (9,6),(9,7),(9,8),(9,9)", wordsearch3.getFoundWords());
+        wordsearch3.checkIfRowContainsWord("SQUASH".split(""), 9);
+        assertEquals("RICE: (9,6),(9,7),(9,8),(9,9)", wordsearch3.getFoundWords());
+        wordsearch3.checkIfRowContainsWord("ZUCCHINI".split(""), 8);
+        assertEquals("RICE: (9,6),(9,7),(9,8),(9,9)\nZUCCHINI: (8,0),(8,1),(8,2),(8,3),(8,4),(8,5),(8,6),(8,7)", wordsearch3.getFoundWords());
+
+    }
 }
