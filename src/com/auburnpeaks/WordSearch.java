@@ -259,31 +259,35 @@ public class WordSearch {
 
 
     public void findWords(){
-
         if(Arrays.asList(wordsToFind).contains("")){
             System.out.println("Words to find contains a null value");
             return;
         }
-
         if(wordSearchPuzzle.isEmpty()){
             System.out.println("Puzzle is empty (size = 0)");
             return;
         }
-
         if(!puzzleIsSquare()){
             System.out.println("Puzzle is not square");
             return;
         }
-
         if(wordSearchPuzzle.contains(null)){
             System.out.println("Puzzle contains a null row");
             return;
         }
 
-        String[] findThisWord = "RICE".split("");
         int puzzleSize = wordSearchPuzzle.size();
+        System.out.println(Arrays.asList(wordsToFind).toString());
+        for(String wordToFind : wordsToFind){
+            String[] wordToFindArray = wordToFind.split("");
 
-        foundWords += "Non Empty String";
+            System.out.println(Arrays.asList(wordToFindArray).toString());
+            for(int i = 0; i < puzzleSize; i++){
+                if(checkIfRowContainsWordBackwards(wordToFindArray, i)){
+                    break;
+                };
+            }
+        }
 
     }
 
