@@ -10,6 +10,9 @@ public class WordSearchTest {
     private WordSearch wordsearch;
     private WordSearch wordsearch2;
     private WordSearch wordsearch3;
+    private String[] wordsToFindInPuzzle1;
+    private String[] wordsToFindInPuzzle2;
+    private String[] wordsToFindInPuzzle3;
 
     @Before
     public void setUp(){
@@ -19,6 +22,9 @@ public class WordSearchTest {
         wordsearch.readTestPuzzle("Inputs/WordSearchTestPuzzle1");
         wordsearch2.readTestPuzzle("Inputs/WordSearchTestPuzzle2");
         wordsearch3.readTestPuzzle("Inputs/WordSearchTestPuzzle3");
+        wordsToFindInPuzzle1 = wordsearch.getWordsToFind();
+        wordsToFindInPuzzle2 = wordsearch2.getWordsToFind();
+        wordsToFindInPuzzle3 = wordsearch3.getWordsToFind();
     }
 
     @Test
@@ -77,9 +83,6 @@ public class WordSearchTest {
 
     @Test
     public void PuzzleCanFindVerticalWords(){
-        String[] wordsToFindInPuzzle1 = wordsearch.getWordsToFind();
-        String[] wordsToFindInPuzzle2 = wordsearch2.getWordsToFind();
-        String[] wordsToFindInPuzzle3 = wordsearch3.getWordsToFind();
         assertTrue(wordsearch.checkIfColumnContainsWord(wordsToFindInPuzzle1[2].split(""), 8));
         assertTrue(wordsearch2.checkIfColumnContainsWord(wordsToFindInPuzzle2[7].split(""), 11));
         assertTrue(wordsearch3.checkIfColumnContainsWord(wordsToFindInPuzzle3[5].split(""), 7));
@@ -89,9 +92,6 @@ public class WordSearchTest {
 
     @Test
     public void PuzzleCanFindVerticalWordsBackwards(){
-        String[] wordsToFindInPuzzle1 = wordsearch.getWordsToFind();
-        String[] wordsToFindInPuzzle2 = wordsearch2.getWordsToFind();
-        String[] wordsToFindInPuzzle3 = wordsearch3.getWordsToFind();
         assertTrue(wordsearch3.checkIfColumnContainsWordBackwards(wordsToFindInPuzzle3[2].split(""), 8));
         assertTrue(wordsearch3.checkIfColumnContainsWordBackwards(wordsToFindInPuzzle3[6].split(""), 9));
         assertTrue(wordsearch2.checkIfColumnContainsWordBackwards(wordsToFindInPuzzle2[5].split(""), 10));
