@@ -277,15 +277,12 @@ public class WordSearch {
         }
 
         int puzzleSize = wordSearchPuzzle.size();
-        System.out.println(Arrays.asList(wordsToFind).toString());
         for(String wordToFind : wordsToFind){
             String[] wordToFindArray = wordToFind.split("");
-
-            System.out.println(Arrays.asList(wordToFindArray).toString());
             for(int i = 0; i < puzzleSize; i++){
-                if(checkIfRowContainsWordBackwards(wordToFindArray, i)){
+                if(checkIfRowContainsWord(wordToFindArray, i) || checkIfRowContainsWordBackwards(wordToFindArray, i)){
                     break;
-                };
+                }
             }
         }
 

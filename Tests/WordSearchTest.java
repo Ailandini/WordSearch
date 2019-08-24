@@ -201,4 +201,10 @@ public class WordSearchTest {
         wordsearchSingle.findWords();
         assertEquals("ASTRONAUT: (10,8),(10,7),(10,6),(10,5),(10,4),(10,3),(10,2),(10,1),(10,0)", wordsearchSingle.getFoundWords());
     }
+
+    @Test
+    public void findAllHorizontalWords(){
+        wordsearch3.findWords();
+        assertEquals("RICE: (9,6),(9,7),(9,8),(9,9)\nSQUASH: (9,5),(9,4),(9,3),(9,2),(9,1),(9,0)\nZUCCHINI: (8,0),(8,1),(8,2),(8,3),(8,4),(8,5),(8,6),(8,7)", wordsearch3.getFoundWords());
+    }
 }
