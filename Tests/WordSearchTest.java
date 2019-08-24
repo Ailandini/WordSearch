@@ -177,5 +177,21 @@ public class WordSearchTest {
         assertEquals("HIKE: (3,3),(2,2),(1,1),(0,0)", wordsearch5.getFoundWords());
     }
 
+    @Test
+    public void InvalidStringsAndPuzzlesReturnNUll(){
+        WordSearch wordsearch6 = new WordSearch();
+        WordSearch wordsearch4 = new WordSearch();
+        WordSearch wordsearch0 = new WordSearch();
+        wordsearch0.readTestPuzzle("Inputs/WordSearchEmpty");
+        wordsearch6.readTestPuzzle("Inputs/WordSearchTestPuzzle6");
+        wordsearch4.readTestPuzzle("Inputs/WordSearchTestPuzzle4");
+        wordsearch6.findWords();
+        assertEquals("", wordsearch6.getFoundWords());
+        wordsearch4.findWords();
+        assertEquals("", wordsearch4.getFoundWords());
+        wordsearch0.findWords();
+        assertEquals("", wordsearch0.getFoundWords());
+
+    }
 
 }
