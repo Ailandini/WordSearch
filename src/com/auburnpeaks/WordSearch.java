@@ -278,10 +278,22 @@ public class WordSearch {
 
         int puzzleSize = wordSearchPuzzle.size();
         for(String wordToFind : wordsToFind){
+            Boolean foundWord = false;
             String[] wordToFindArray = wordToFind.split("");
             for(int i = 0; i < puzzleSize; i++){
-                if(checkIfRowContainsWord(wordToFindArray, i) || checkIfRowContainsWordBackwards(wordToFindArray, i)){
+                if(foundWord){
                     break;
+                }
+                if(checkIfRowContainsWord(wordToFindArray, i) || checkIfRowContainsWordBackwards(wordToFindArray, i)){
+                    foundWord = true;
+                    break;
+                }
+                for(int j = 0; j < puzzleSize; j++){
+                    if(checkIfColumnContainsWord(wordToFindArray, j) || checkIfColumnContainsWordBackwards(wordToFindArray, j)){
+
+                        foundWord = true;
+                        break;
+                    }
                 }
             }
         }
