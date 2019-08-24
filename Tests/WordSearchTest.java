@@ -191,7 +191,6 @@ public class WordSearchTest {
         assertEquals("", wordsearch4.getFoundWords());
         wordsearch0.findWords();
         assertEquals("", wordsearch0.getFoundWords());
-
     }
 
 }

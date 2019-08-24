@@ -259,12 +259,19 @@ public class WordSearch {
 
 
     public void findWords(){
-        if(!puzzleIsSquare()){
-            System.out.println("Input Puzzle is not square");
-            return;
-        }
+
         if(Arrays.asList(wordsToFind).contains("")){
             System.out.println("Words to find contains a null value");
+            return;
+        }
+
+        if(wordSearchPuzzle.isEmpty()){
+            System.out.println("Puzzle is empty (size = 0)");
+            return;
+        }
+
+        if(!puzzleIsSquare()){
+            System.out.println("Puzzle is not square");
             return;
         }
 
@@ -272,10 +279,7 @@ public class WordSearch {
             System.out.println("Puzzle contains a null row");
             return;
         }
-        if(wordSearchPuzzle.size() == 0){
-            System.out.println("Puzzle is empty (size = 0)");
-            return;
-        }
+
         String[] findThisWord = "RICE".split("");
         int puzzleSize = wordSearchPuzzle.size();
 
