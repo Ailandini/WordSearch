@@ -17,9 +17,9 @@ public class WordSearchTest {
         wordsearch  = new WordSearch();
         wordsearch2 = new WordSearch();
         wordsearch3 = new WordSearch();
-        wordsearch.readTestPuzzle("../Inputs/WordSearchTestPuzzle1");
-        wordsearch2.readTestPuzzle("../Inputs/WordSearchTestPuzzle2");
-        wordsearch3.readTestPuzzle("../Inputs/WordSearchTestPuzzle3");
+        wordsearch.readTestPuzzle("Inputs/WordSearchTestPuzzle1");
+        wordsearch2.readTestPuzzle("Inputs/WordSearchTestPuzzle2");
+        wordsearch3.readTestPuzzle("Inputs/WordSearchTestPuzzle3");
         wordsToFindInPuzzle1 = wordsearch.getWordsToFind();
         wordsToFindInPuzzle2 = wordsearch2.getWordsToFind();
         wordsToFindInPuzzle3 = wordsearch3.getWordsToFind();
@@ -56,7 +56,7 @@ public class WordSearchTest {
     @Test
     public void PuzzleIsSquareCorrectOutput(){
         WordSearch wordsearch4 = new WordSearch();
-        wordsearch4.readTestPuzzle("../Inputs/WordSearchTestPuzzle4");
+        wordsearch4.readTestPuzzle("Inputs/WordSearchTestPuzzle4");
         assertTrue(wordsearch.puzzleIsSquare());
         assertTrue(wordsearch2.puzzleIsSquare());
         assertFalse(wordsearch4.puzzleIsSquare());
@@ -126,7 +126,7 @@ public class WordSearchTest {
     @Test
     public void PuzzleCanFindBackSlashWordsBackwards(){
         WordSearch wordsearch5 = new WordSearch();
-        wordsearch5.readTestPuzzle("../Inputs/WordSearchTestPuzzle5");
+        wordsearch5.readTestPuzzle("Inputs/WordSearchTestPuzzle5");
         String[] wordsToFindInPuzzle5 = wordsearch5.getWordsToFind();
 
         assertTrue(wordsearch5.checkIfBackSlashContainsWordBackwards(wordsToFindInPuzzle5[2].split(""), 3, 3));
@@ -174,7 +174,7 @@ public class WordSearchTest {
                 "CARROT: (0,2),(1,3),(2,4),(3,5),(4,6),(5,7)", wordsearch3.getFoundWords());
 
         WordSearch wordsearch5 = new WordSearch();
-        wordsearch5.readTestPuzzle("../Inputs/WordSearchTestPuzzle5");
+        wordsearch5.readTestPuzzle("Inputs/WordSearchTestPuzzle5");
         String[] wordsToFindInPuzzle5 = wordsearch5.getWordsToFind();
 
         wordsearch5.checkIfBackSlashContainsWordBackwards(wordsToFindInPuzzle5[2].split(""), 3, 3);
@@ -186,9 +186,9 @@ public class WordSearchTest {
         WordSearch wordsearch6 = new WordSearch();
         WordSearch wordsearch4 = new WordSearch();
         WordSearch wordsearch0 = new WordSearch();
-        wordsearch0.readTestPuzzle("../Inputs/WordSearchEmpty");
-        wordsearch6.readTestPuzzle("../Inputs/WordSearchTestPuzzle6");
-        wordsearch4.readTestPuzzle("../Inputs/WordSearchTestPuzzle4");
+        wordsearch0.readTestPuzzle("Inputs/WordSearchEmpty");
+        wordsearch6.readTestPuzzle("Inputs/WordSearchTestPuzzle6");
+        wordsearch4.readTestPuzzle("Inputs/WordSearchTestPuzzle4");
         wordsearch6.findWords();
         assertEquals("", wordsearch6.getFoundWords());
         wordsearch4.findWords();
@@ -200,7 +200,7 @@ public class WordSearchTest {
     @Test
     public void findSingleWordInput(){
         WordSearch wordsearchSingle = new WordSearch();
-        wordsearchSingle.readTestPuzzle("../Inputs/WordSearchSingleWord");
+        wordsearchSingle.readTestPuzzle("Inputs/WordSearchSingleWord");
         wordsearchSingle.findWords();
         assertEquals("ASTRONAUT: (8,10),(7,10),(6,10),(5,10),(4,10),(3,10),(2,10),(1,10),(0,10)", wordsearchSingle.getFoundWords());
     }
@@ -256,7 +256,7 @@ public class WordSearchTest {
                 "ZUCCHINI: (0,8),(1,8),(2,8),(3,8),(4,8),(5,8),(6,8),(7,8)", wordsearch3.getFoundWords());
 
         WordSearch wordsearch7 = new WordSearch();
-        wordsearch7.readTestPuzzle("../Inputs/WordSearchTestPuzzle7");
+        wordsearch7.readTestPuzzle("Inputs/WordSearchTestPuzzle7");
         wordsearch7.findWords();
         assertEquals("BONES: (0,6),(0,7),(0,8),(0,9),(0,10)\n" +
                 "KHAN: (5,9),(5,8),(5,7),(5,6)\n" +
