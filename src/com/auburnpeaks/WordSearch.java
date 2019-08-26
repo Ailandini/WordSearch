@@ -24,7 +24,6 @@ public class WordSearch {
             }
         }
         catch(Exception e){
-            System.out.println(e);
             System.out.println("Error Reading File:" + pathToTestPuzzle);
         }
     }
