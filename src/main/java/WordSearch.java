@@ -1,4 +1,3 @@
-package com.auburnpeaks;
 import java.util.ArrayList;
 import java.io.*;
 import java.util.Arrays;

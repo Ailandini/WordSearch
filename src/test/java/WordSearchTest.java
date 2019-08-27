@@ -1,4 +1,4 @@
-import com.auburnpeaks.WordSearch;
+
 import org.junit.*;
 
 import static junit.framework.TestCase.assertEquals;
