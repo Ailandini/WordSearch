@@ -1,0 +1,38 @@
+Word Search Code Kata for Pillar/Accenture X.0
+Ansel Landini
+
+Welcome to the Word Search!
+To begin, please clone all files to a git repository on your local machine.
+If you are unsure how to do this, please refer to the steps below, otherwise skip down to the "TO BUILD" section of the README file.
+
+####SETUP GIT REPO####
+Open a cmd window (a quick way to do this is to click the windows key and type cmd)
+Navigate to the folder you would like to set up the repo (navigate forward through files with cd <Folder Name> and backward with cd ..)
+Type the following:
+
+> git init
+> git clone https://github.com/Ailandini/WordSearch.git
+
+After a moment the files should clone to your directory and you are ready to build the project.
+
+####TO BUILD####
+To build the Word Search project, navigate to the location of the cloned repository.
+Type the following:
+
+> cd WordSearch
+> gradle build
+> gradle test
+
+The Word Search project is designed to allow you to provide it a test puzzle as input. For your convenience, the project
+repository contains a number of test puzzles with the naming convention: Inputs/WordSearchTestPuzzle# where # can be any
+number between 1 and 7.
+Note that if you provide your own test puzzle to the project, you will need to provide the full path file within the args string.
+For example if your puzzle is saved to the desktop: --args='C:\Users\<YourUserName>\Desktop\<PuzzleName>.txt'.
+Type the following:
+
+gradle run --args='Inputs/WordSearchTestPuzzle7'
+
+The project outputs the words and their respective (x,y) coordinates to the command line.
+Note that (x,y) directly correlates to (column, row).
+
+I hope you enjoy my Code Kata, and look forward to any suggestions/feedback provided :)
