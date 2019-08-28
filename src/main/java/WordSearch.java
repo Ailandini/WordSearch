@@ -43,10 +43,15 @@ public class WordSearch {
         return wordSearchPuzzle.size() == wordSearchPuzzle.get(0).size();
     }
 
-    public Boolean checkIfRowContainsWordBackwards(String[] wordToFind, int puzzleRowToCheck){
+    private StringBuilder createInitialWordToFind(String[] wordToFind){
         StringBuilder initialWord = new StringBuilder();
         for(String letter : wordToFind){ initialWord.append(letter);}
         initialWord.append(": ");
+        return initialWord;
+    }
+
+    public Boolean checkIfRowContainsWordBackwards(String[] wordToFind, int puzzleRowToCheck){
+        StringBuilder initialWord = createInitialWordToFind(wordToFind);
         StringBuilder outputIfWordFound = new StringBuilder(initialWord.toString());
 
         int wordToFindLetterIndex = 0;
@@ -69,9 +74,7 @@ public class WordSearch {
     }
 
     public Boolean checkIfRowContainsWord(String[] wordToFind, int puzzleRowToCheck){
-        StringBuilder initialWord = new StringBuilder();
-        for(String letter : wordToFind){ initialWord.append(letter);}
-        initialWord.append(": ");
+        StringBuilder initialWord = createInitialWordToFind(wordToFind);
         StringBuilder outputIfWordFound = new StringBuilder(initialWord.toString());
 
         int wordToFindLetterIndex = 0;
@@ -93,9 +96,7 @@ public class WordSearch {
     }
 
     public Boolean checkIfColumnContainsWord(String[] wordToFind, int puzzleColumnToCheck){
-        StringBuilder initialWord = new StringBuilder();
-        for(String letter : wordToFind){ initialWord.append(letter);}
-        initialWord.append(": ");
+        StringBuilder initialWord = createInitialWordToFind(wordToFind);
         StringBuilder outputIfWordFound = new StringBuilder(initialWord.toString());
 
         int wordToFindLetterIndex = 0;
@@ -116,9 +117,7 @@ public class WordSearch {
     }
 
     public Boolean checkIfColumnContainsWordBackwards(String[] wordToFind, int puzzleColumnToCheck){
-        StringBuilder initialWord = new StringBuilder();
-        for(String letter : wordToFind){ initialWord.append(letter);}
-        initialWord.append(": ");
+        StringBuilder initialWord = createInitialWordToFind(wordToFind);
         StringBuilder outputIfWordFound = new StringBuilder(initialWord.toString());
 
         int wordToFindLetterIndex = 0;
@@ -140,9 +139,7 @@ public class WordSearch {
     }
 
     public Boolean checkIfForwardSlashContainsWord(String[] wordToFind, int puzzleRowToCheck, int puzzleColumnToCheck){
-        StringBuilder initialWord = new StringBuilder();
-        for(String letter : wordToFind){ initialWord.append(letter);}
-        initialWord.append(": ");
+        StringBuilder initialWord = createInitialWordToFind(wordToFind);
         StringBuilder outputIfWordFound = new StringBuilder(initialWord.toString());
 
         int wordToFindLetterIndex = 0;
@@ -169,9 +166,7 @@ public class WordSearch {
     }
 
     public Boolean checkIfForwardSlashContainsWordBackwards(String[] wordToFind, int puzzleRowToCheck, int puzzleColumnToCheck){
-        StringBuilder initialWord = new StringBuilder();
-        for(String letter : wordToFind){ initialWord.append(letter);}
-        initialWord.append(": ");
+        StringBuilder initialWord = createInitialWordToFind(wordToFind);
         StringBuilder outputIfWordFound = new StringBuilder(initialWord.toString());
 
         int wordToFindLetterIndex = 0;
@@ -198,9 +193,7 @@ public class WordSearch {
     }
 
     public Boolean checkIfBackSlashContainsWord(String[] wordToFind, int puzzleRowToCheck, int puzzleColumnToCheck){
-        StringBuilder initialWord = new StringBuilder();
-        for(String letter : wordToFind){ initialWord.append(letter);}
-        initialWord.append(": ");
+        StringBuilder initialWord = createInitialWordToFind(wordToFind);
         StringBuilder outputIfWordFound = new StringBuilder(initialWord.toString());
 
         int wordToFindLetterIndex = 0;
@@ -227,9 +220,7 @@ public class WordSearch {
     }
 
     public Boolean checkIfBackSlashContainsWordBackwards(String[] wordToFind, int puzzleRowToCheck, int puzzleColumnToCheck){
-        StringBuilder initialWord = new StringBuilder();
-        for(String letter : wordToFind){ initialWord.append(letter);}
-        initialWord.append(": ");
+        StringBuilder initialWord = createInitialWordToFind(wordToFind);
         StringBuilder outputIfWordFound = new StringBuilder(initialWord.toString());
 
         int wordToFindLetterIndex = 0;
